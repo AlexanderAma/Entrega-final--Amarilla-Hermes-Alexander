@@ -1,0 +1,20 @@
+{% extends "critica_cine/base.html" %}
+
+{% block titulo %}
+
+<title>Blog Cine y series </title>
+
+{% endblock titulo %}
+
+{% block contenido %}
+
+        
+        <h1>Bienvenido: {{ request.user.first_name }}</h1>
+        <h1>Más historias: Blog de cine y series</h1>
+        <img src="{{ user.avatar.imagen.url }}" />
+        
+        
+
+    {% endblock contenido %}
+
+ 

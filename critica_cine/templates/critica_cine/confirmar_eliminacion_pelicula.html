@@ -1,0 +1,19 @@
+{% extends "critica_cine/base.html" %}
+
+{% block titulo %}
+
+<title>Blog de cine y series: Eliminar </title>
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<span>Vas a eliminar la pelicula {{ object.nombre_de_pelicula}}</span>
+<form  method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Eliminar"/>
+</form>
+
+{% endblock contenido %}

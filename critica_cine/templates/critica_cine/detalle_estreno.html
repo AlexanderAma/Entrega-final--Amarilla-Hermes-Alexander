@@ -1,0 +1,21 @@
+{% extends "critica_cine/base.html" %}
+
+{% block titulo %}
+
+<title>Blog de cine y series: Descripción </title>
+
+
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<h1> {{ object.nombre_de_pelicula}}</h1><br>
+<b>Director: {{ object.director}}</b><br>
+<b>Descripcion: {{ object.descripcion}} </b>
+
+<br>
+<a href="{% url "series" %} >Volver a la lista</a>
+
+{% endblock contenido %}

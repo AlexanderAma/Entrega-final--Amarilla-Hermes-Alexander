@@ -1,0 +1,18 @@
+{% extends "critica_cine/base.html" %}
+
+{% block titulo %}
+
+<title>Blog de cine y series: Series </title>
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<form  method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Iniciar sesión"/>
+</form>
+
+{% endblock contenido %}

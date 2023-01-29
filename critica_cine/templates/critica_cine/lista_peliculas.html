@@ -1,0 +1,64 @@
+{% extends "critica_cine/base.html" %}
+
+{% block titulo %}
+
+<title>Blog de cine y series: Peliculas </title>
+
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<section>
+    <div>
+        <h1>Lista de peliculas</h1><br>
+        <a href="{% url "crear_pelicula" %}">Añadir pelicula</a>
+
+        <form action="{% url "buscar_pelicula" %}" method="post"><br>
+            {% csrf_token %}           
+            <input type="text" name="nombre_de_pelicula">
+            <input type="submit" value="Buscar">        
+        </form>        
+               
+        <br>
+
+       <table class = "table">
+         <body>
+            <tr>
+                <th> Nombre</th>
+                <th> Director</th>
+                <th> Pais de origen</th>
+                <th> Fecha de estreno</th>
+                <th> Ver</th>
+                <th> Editar</th>
+                <th> Eliminar</th>
+               
+            </tr>
+            
+            {% for pelicula in peliculas %}
+            
+            <tr>
+                <td>{{pelicula.nombre_de_pelicula}}</td>
+                <td>{{pelicula.director}}</td>
+                <td>{{pelicula.pais_de_origen}}</td>
+                <td>{{pelicula.fecha_estreno}}</td>
+                <td>
+                <a href = "{% url "ver_pelicula" pelicula.id %}">Ver</a>
+                </td>
+                <td>
+                    <a href = "{% url "editar_pelicula" pelicula.id %}">Editar</a>
+                </td>
+                <td>
+                    <a href = "{% url "eliminar_pelicula" pelicula.id %}"><button type="button" class="btn btn-danger">Eliminar</button>
+                </td>
+               
+                
+                
+             </tr>
+
+            {% endfor %}
+
+         </body>
+       </table> 
+      
+    {% endblock contenido %}

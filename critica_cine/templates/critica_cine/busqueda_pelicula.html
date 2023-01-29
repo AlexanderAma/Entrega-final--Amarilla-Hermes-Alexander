@@ -1,0 +1,22 @@
+{% extends "critica_cine/base.html" %}
+
+{% block titulo %}
+
+<title>Blog de cine y series</title>
+
+{% endblock titulo %}
+
+
+{% block subtitulo %} Buscar pelicula {% endblock subtitulo %}
+
+{% block contenido %}
+
+<form action="{% url "buscar_pelicula" %}" method="post">
+    {% csrf_token %}
+     <p>Nombre</p>
+    <input type="text" name="nombre_de_pelicula">
+    <input type="submit" value="Enviar">
+
+</form>
+
+{% endblock contenido %}

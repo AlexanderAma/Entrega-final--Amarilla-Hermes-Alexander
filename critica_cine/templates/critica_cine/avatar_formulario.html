@@ -1,0 +1,20 @@
+{% extends "critica_cine/base.html" %}
+
+{% block titulo %}
+
+<title>Blog de cine y series: Series </title>
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+<p>Tu username es <b>{{ object.username }}</p></b>
+
+<h3>Cargar Avatar</h3>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Guardar imagen"/>
+</form>
+
+{% endblock contenido %}
